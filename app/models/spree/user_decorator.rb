@@ -5,10 +5,10 @@ if Spree.user_class
     after_destroy :unsubscribe
     after_initialize :assign_subscription_default
 
-    delegate :subscribe, :resubscribe, :unsubscribe, to: :subscription
+    delegate :subscribe, :resubscribe, :unsubscribe, to: :subscription_chimpy
 
   private
-    def subscription
+    def subscription_chimpy
       Spree::Chimpy::Subscription.new(self)
     end
 
